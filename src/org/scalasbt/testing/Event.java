@@ -43,4 +43,10 @@ public interface Event {
      * @return the <code>Throwable</code> for this <code>Event</code>.
      */
     public Throwable getCause();
+
+    /**
+     * The name to display for this event. This is usually a hierarchical name of the form
+     * <code>suite.method</code> or <code>suite.nestedSuite.method</code>.
+     */
+    public String getDisplayName();
 }

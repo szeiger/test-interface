@@ -20,4 +20,8 @@ public class NestedSuiteSelectorImpl implements NestedSuiteSelector {
     public String getSuiteId() {
         return suiteId;
     }
+
+    public String getDisplayName() {
+        return suiteId;
+    }
 }

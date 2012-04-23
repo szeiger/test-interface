@@ -36,4 +36,7 @@ public class NestedTestSelectorImpl implements NestedTestSelector {
         return testName;
     }
 
+    public String getDisplayName() {
+      return suiteId + "." + testName;
+    }
 }

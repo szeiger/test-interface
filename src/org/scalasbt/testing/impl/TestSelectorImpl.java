@@ -26,4 +26,8 @@ public class TestSelectorImpl implements TestSelector {
     public String getTestName() {
         return testName;
     }
+
+    public String getDisplayName() {
+      return testName;
+    }
 }

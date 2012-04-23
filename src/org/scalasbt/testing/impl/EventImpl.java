@@ -62,4 +62,10 @@ public abstract class EventImpl implements Event {
     public EventType getEventType() {
         return eventType;
     }
+
+    public String getDisplayName() {
+        String selName = selector.getDisplayName();
+        if(selName == null || selName.length() == 0) return fullyQualifiedName;
+        else return fullyQualifiedName + "." + selName;
+    }
 }

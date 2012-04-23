@@ -20,4 +20,9 @@ package org.scalasbt.testing;
  * </ul>
  */
 public interface Selector {
+  /**
+   * The name to display for this selector. This is usually a hierarchical name of the form
+   * <code>method</code> or <code>nestedSuite.method</code>.
+   */
+  public String getDisplayName();
 }

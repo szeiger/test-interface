@@ -7,4 +7,8 @@ import org.scalasbt.testing.SuiteSelector;
  * the <code>fullyQualifiedName</code> attribute the event.
  */
 public class SuiteSelectorImpl implements SuiteSelector {
+
+    public String getDisplayName() {
+      return "";
+    }
 }

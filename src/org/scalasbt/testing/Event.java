@@ -6,21 +6,6 @@ package org.scalasbt.testing;
 public interface Event {
 
     /**
-     * The fully qualified test class name about which an event was fired.
-     *
-     * @return the fully qualified test class name
-     */
-    public String getFullyQualifiedName();
-
-    /**
-     * Indicates whether the fullyQualifiedName refers to a module (singleton object). If so, the
-     *          fullyQualifiedName parameter does not include the trailing dollar sign.
-     *
-     * @return true if the fullyQualifiedName refers to a module instead of a class
-     */
-    public boolean isModule();
-
-    /**
      * A <code>Selector</code> that can be used to identify the suite or test about which an event was fired.
      *
      * @return the fully qualified test class name
@@ -43,10 +28,4 @@ public interface Event {
      * @return the <code>Throwable</code> for this <code>Event</code>.
      */
     public Throwable getCause();
-
-    /**
-     * The name to display for this event. This is usually a hierarchical name of the form
-     * <code>suite.method</code> or <code>suite.nestedSuite.method</code>.
-     */
-    public String getDisplayName();
 }

@@ -18,7 +18,7 @@ public class ReverseEventAdapter implements Event {
   
   @Override
   public String testName() {
-    return event.getDisplayName();
+    return event.getSelector().getDisplayName();
   }
 
   @Override

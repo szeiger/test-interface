@@ -17,33 +17,25 @@ public class ErrorEventImpl extends EventImpl {
      * associated with this event, you must use the other constructor.
      * </p>
      *
-     * @param fullyQualifiedName the fully qualified name of a class that can rerun the suite or test
-     *                           about which an event was fired
-     * @param isModule indicates whether the fullyQualifiedName refers to a module (singleton object). If so, the
-     *          fullyQualifiedName parameter does not include the trailing dollar sign.
      * @param selector additional information identifying the suite or test about which an event was fired
      * @param cause a <code>Throwable</code> associated with this <code>ErrorEvent</code>,
      *              or <code>null</code> if no <code>Throwable</code> is associated with this event.
      *
      * @throws NullPointerException if <code>fullyQualifiedName</code> or <code>selector</code> is null.
      */
-    public ErrorEventImpl(String fullyQualifiedName, boolean isModule, Selector selector, Throwable cause, EventType eventType) {
-        super(fullyQualifiedName, isModule, selector, cause, EventType.Error);
+    public ErrorEventImpl(Selector selector, Throwable cause, EventType eventType) {
+        super(selector, cause, EventType.Error);
     }
 
     /**
      * Constructs a new <code>ErrorEvent</code> with passed fully qualified name, isModule flag, selector,
      * and a <code>null</code> <code>Throwable</code>.
      *
-     * @param fullyQualifiedName the fully qualified name of a class that can rerun the suite or test
-     *                           about which an event was fired
-     * @param isModule indicates whether the fullyQualifiedName refers to a module (singleton object). If so, the
-     *          fullyQualifiedName parameter does not include the trailing dollar sign.
      * @param selector additional information identifying the suite or test about which an event was fired
      *
      * @throws NullPointerException if <code>fullyQualifiedName</code> or <code>selector</code>is null.
     */
-    public ErrorEventImpl(String fullyQualifiedName, boolean isModule, Selector selector) {
-        super(fullyQualifiedName, isModule, selector, null, EventType.Error);
+    public ErrorEventImpl(Selector selector) {
+        super(selector, null, EventType.Error);
     }
 }

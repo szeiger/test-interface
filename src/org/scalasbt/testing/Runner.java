@@ -36,14 +36,12 @@ public interface Runner {
      * Returns a task that when executed will run tests and suites determined by the
      * passed test class name and selectors.
      *
-     * @param fullyQualifiedName the fully qualified name of the test class to be run by the returned task
-     * @param isModule indicates whether this was a module (singleton object). If so, the fullyQualifiedName
-     *                 parameter does not include the trailing dollar sign
-     * @param selectors a possibly empty array <code>Selectors</code> determining suites and tests to run
+     * @param selectors a non-empty array <code>Selectors</code> determining suites and tests to run.
+     *                  All selectors must refer to the same test class or same test object at the top level.
      * @return a task that when executed will run the selected test and/or suite "members" of the passed test class
      * @throws IllegalStateException if invoked after <code>done</code> has been invoked.
      */
-    public Task task(String fullyQualifiedName, boolean isModule, Selector[] selectors);
+    public Task task(Selector[] selectors);
 
     /**
      * Indicates the client is done with this <code>Runner</code> instance.

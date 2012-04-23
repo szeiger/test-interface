@@ -3,9 +3,9 @@ package org.scalasbt.testing;
 public enum SelectorType
 {
   /**
-   * A test method.
+   * A single test.
     */
-   Method,
+  Leaf,
 
   /**
    * A top-level or nested test class.
@@ -15,5 +15,10 @@ public enum SelectorType
   /**
    * A top-level or nested test object.
    */
-  Object
+  Object,
+
+  /**
+   * A (possibly nested) group of tests which does not map to a class or an object.
+   */
+  Group
 }

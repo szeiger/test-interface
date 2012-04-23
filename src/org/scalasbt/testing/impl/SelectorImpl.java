@@ -17,7 +17,7 @@ public class SelectorImpl implements Selector {
   private String cachedDisplayName;
 
   public SelectorImpl(Selector parent, SelectorType selectorType, String localName) {
-    if(parent != null && parent.getSelectorType() == SelectorType.Method)
+    if(parent != null && parent.getSelectorType() == SelectorType.Leaf)
       throw new IllegalArgumentException("Parent selector must be a suite");
     this.selectorType = selectorType;
     this.parent = parent;

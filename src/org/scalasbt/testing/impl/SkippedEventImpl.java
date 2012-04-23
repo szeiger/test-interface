@@ -1,12 +1,15 @@
-package org.scalasbt.testing;
+package org.scalasbt.testing.impl;
+
+import org.scalasbt.testing.EventType;
+import org.scalasbt.testing.Selector;
 
 /**
- * Indicates a test succeeded.
+ * Default implementation of a <code>SkippedEvent</code>.
  */
-public class SuccessEvent extends Event {
+public class SkippedEventImpl extends EventImpl {
 
     /**
-     * Constructs a new <code>SuccessEvent</code> with passed fully qualified name, isModule flag, and selector.
+     * Constructs a new <code>SkippedEvent</code> with passed fully qualified name, isModule flag, and selector.
      *
      * @param fullyQualifiedName the fully qualified name of a class that can rerun the suite or test
      *                           about which an event was fired
@@ -16,7 +19,7 @@ public class SuccessEvent extends Event {
      *
      * @throws NullPointerException if <code>fullyQualifiedName</code> or <code>selector</code> is null.
      */
-    public SuccessEvent(String fullyQualifiedName, boolean isModule, Selector selector) {
-        super(fullyQualifiedName, isModule, selector);
+    public SkippedEventImpl(String fullyQualifiedName, boolean isModule, Selector selector) {
+        super(fullyQualifiedName, isModule, selector, null, EventType.Skipped);
     }
 }

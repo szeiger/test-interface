@@ -19,5 +19,5 @@ package org.scalasbt.testing;
  * in the suite whose class was reported as <code>fullyQualifiedName</code> in the <code>Event</code></li>
  * </ul>
  */
-abstract public class Selector {
+public interface Selector {
 }

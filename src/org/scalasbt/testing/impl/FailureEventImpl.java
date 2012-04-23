@@ -1,17 +1,12 @@
-package org.scalasbt.testing;
+package org.scalasbt.testing.impl;
+
+import org.scalasbt.testing.EventType;
+import org.scalasbt.testing.Selector;
 
 /**
- * An event that indicates a failure occurred.
- *
- * <p>
- * Implementing test frameworks can decide how to differentiate between "failures" and
- * "errors." JUnit reports assertion failures as "failures," and any other problems as "errors,"
- * so many users may expect these meanings.
- * </p>
+ * Default implementation of a <code>FailureEvent</code>.
  */
-public class FailureEvent extends Event {
-
-    private Throwable throwable;
+public class FailureEventImpl extends EventImpl {
 
     /**
      * Constructs a new <code>FailureEvent</code> with passed fully qualified name, isModule flag, selector,
@@ -28,18 +23,13 @@ public class FailureEvent extends Event {
      * @param isModule indicates whether the fullyQualifiedName refers to a module (singleton object). If so, the
      *          fullyQualifiedName parameter does not include the trailing dollar sign.
      * @param selector additional information identifying the suite or test about which an event was fired
-     * @param throwable a <code>Throwable</code> associated with this <code>FailureEvent</code>,
-     *                  or <code>null</code> if no <code>Throwable</code> is associated with this event.
+     * @param cause a <code>Throwable</code> associated with this <code>FailureEvent</code>,
+     *              or <code>null</code> if no <code>Throwable</code> is associated with this event.
      *
-     * @throws NullPointerException if <code>fullyQualifiedName</code>, <code>selector</code>, or
-     *     <code>throwable</code> is null.
+     * @throws NullPointerException if <code>fullyQualifiedName</code> or <code>selector</code>is null.
      */
-    public FailureEvent(String fullyQualifiedName, boolean isModule, Selector selector, Throwable throwable) {
-        super(fullyQualifiedName, isModule, selector);
-        if (throwable == null) {
-            throw new NullPointerException("throwable was null");
-        }
-        this.throwable = throwable;
+    public FailureEventImpl(String fullyQualifiedName, boolean isModule, Selector selector, Throwable cause) {
+        super(fullyQualifiedName, isModule, selector, cause, EventType.Failure);
     }
 
     /**
@@ -55,19 +45,7 @@ public class FailureEvent extends Event {
      *
      * @throws NullPointerException if <code>fullyQualifiedName</code> or <code>selector</code>is null.
      */
-    public FailureEvent(String fullyQualifiedName, boolean isModule, Selector selector) {
-        super(fullyQualifiedName, isModule, selector);
-        this.throwable = null;
-    }
-
-    /**
-     * Returns the <code>Throwable</code> that caused this <code>FailureEvent</code>, or
-     *          <code>null</code> if no <code>Throwable</code> was associated with this event.
-     *
-     * @return the <code>Throwable</code> passed to this <code>FailureEvent</code>, or
-     *          <code>null</code>, if no <code>Throwable</code> was passed.
-     */
-    public Throwable throwable() {
-        return throwable;
+    public FailureEventImpl(String fullyQualifiedName, boolean isModule, Selector selector) {
+        super(fullyQualifiedName, isModule, selector, null, EventType.Failure);
     }
 }
